@@ -1,0 +1,14 @@
+{
+    "name": "realtime-drawing",
+    "version": "0.0.1",
+    "description": "NodeJS application that uses web sockets to receive and broadcast drawing events to paint onto a canvas",
+    "license": "MIT",
+    "main": "main.js",
+    "dependencies": {
+        "websocket": "1.0.14 "
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/dylan8902/realtime-drawing"
+    }
+}
