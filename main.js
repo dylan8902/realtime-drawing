@@ -11,19 +11,16 @@ var webSocketsServerPort = 27285;
 var webSocketServer = require('websocket').server;
 var http = require('http');
 
-/**
- * Global variables
- */
 // list of currently connected clients (users)
 var clients = [ ];
 
 /**
  * HTTP server
  */
-var server = http.createServer(function(request, response) {
-    // Not important for us. We're writing WebSocket server, not HTTP server
+var httpServer = http.createServer(function(request, response) {
 });
-server.listen(webSocketsServerPort, function() {
+
+httpServer.listen(webSocketsServerPort, function() {
     console.log((new Date()) + " Server is listening on port " + webSocketsServerPort);
 });
 
@@ -31,8 +28,7 @@ server.listen(webSocketsServerPort, function() {
  * WebSocket server
  */
 var wsServer = new webSocketServer({
-    // WebSocket server is tied to a HTTP server. To be honest I don't understand why.
-    httpServer: server
+    httpServer:  httpServer
 });
 
 // This callback function is called every time someone
